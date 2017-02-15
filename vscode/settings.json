@@ -1,0 +1,11 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "window.zoomLevel": 0,
+    "editor.fontSize": 12,
+    // Use ordered list (1. ..., 2. ...).
+    // Depth control [1-6].
+    "markdown-toc.depthFrom": 2,
+    "markdown-toc.orderedList": true,
+    "editor.wrappingColumn": 150,
+    "editor.fontFamily": "Hack"
+}

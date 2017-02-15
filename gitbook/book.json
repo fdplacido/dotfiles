@@ -1,0 +1,10 @@
+{
+    "plugins": ["mathjax", "-sharing", "blurbs", "hints"],
+
+    "pluginsConfig": {
+        "theme-default": {
+            "showLevel": true
+        }
+    }
+
+}
