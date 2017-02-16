@@ -1,11 +1,86 @@
 // Place your settings in this file to overwrite the default settings
 {
-    "window.zoomLevel": 0,
-    "editor.fontSize": 12,
-    // Use ordered list (1. ..., 2. ...).
+    "editor.fontSize": 13,
+    // Controls after how many characters the editor will wrap to the next line. Setting this to 0 turns on viewport width wrapping (word wrapping). Setting this to -1 forces the editor to never wrap.
+    "editor.wrappingColumn": 150,
+
+    // Controls the font family.
+    "editor.fontFamily": "'Hack', 'Courier New', monospace, 'Droid Sans Fallback'",
+
+    // Markdown Toc configuration
+
     // Depth control [1-6].
     "markdown-toc.depthFrom": 2,
+
+    // Depth control [1-6].
+    "markdown-toc.depthTo": 6,
+
+    // Auto insert anchor for link.
+    "markdown-toc.insertAnchor": false,
+
+    // Auto insert link.
+    "markdown-toc.withLinks": true,
+
+    // Use ordered list (1. ..., 2. ...).
     "markdown-toc.orderedList": true,
-    "editor.wrappingColumn": 150,
-    "editor.fontFamily": "Hack"
+
+    // Auto update on save.
+    "markdown-toc.updateOnSave": true,
+
+    // anchor mode.
+    "markdown-toc.anchorMode": "github.com",
+
+    "editor.renderWhitespace": "boundary",
+    "vsicons.dontShowNewVersionMessage": true,
+    "editor.renderIndentGuides": true,
+    "bracketPairColorizer.consecutivePairColors": [
+        "()",
+        "[]",
+        "{}",
+        "<>",
+        [
+            "Gold",
+            "Orchid",
+            "LightSkyBlue"
+        ],
+        "Red"
+    ],
+    "bracketPairColorizer.independentPairColors": [
+        [
+            "()",
+            [
+                "Gold",
+                "Orchid",
+                "LightSkyBlue"
+            ],
+            "Red"
+        ],
+        [
+            "[]",
+            [
+                "Gold",
+                "Orchid",
+                "LightSkyBlue"
+            ],
+            "Red"
+        ],
+        [
+            "{}",
+            [
+                "Gold",
+                "Orchid",
+                "LightSkyBlue"
+            ],
+            "Red"
+        ],
+        [
+            "<>",
+            [
+                "Gold",
+                "Orchid",
+                "LightSkyBlue"
+            ],
+            "Red"
+        ]
+    ]
 }
