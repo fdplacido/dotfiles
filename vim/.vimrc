@@ -1,36 +1,75 @@
-syntax enable           " enable syntax processing
-colorscheme monokai		" Sublime Text 2 theme
+" enable syntax processing
+syntax enable           
 
-set tabstop=4       " number of visual spaces per TAB
-set softtabstop=4   " number of spaces in tab when editing
-set number              " show line numbers
-set ruler
-set cursorline          " highlight current line
-set showmatch           " highlight matching [{()}]
-set t_Co=256            " set 256 colors
-set t_ut=               " disable werid background color with custom theme
+" Sublime Text 2 theme
+colorscheme monokai		
 
-" set smartindent
-" set shiftwidth=4
-" set backspace=indent,eol,start
-" set ruler
-" set number
-" set showcmd
-" set incsearch
-" set hlsearch
+" number of visual spaces per TAB
+set tabstop=4		
 
-" set the runtime path to include Vundle and initialize
-set rtp +=~/.vim/bundle/Vundle.vim
+" number of spaces in tab when editing
+set softtabstop=4		
 
-" ---------------- PLUGIN STARTS ------------
-call vundle#begin()
+" show line numbers
+set number              
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
+" show relative line numbers
+" set relativenumber		
 
-call vundle#end()
+" always show current position
+set ruler		
 
-" ------- NERDTREE settings
-nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
-let g:nerdtree_tabs_open_on_console_startup = 1
+" highlight current line
+set cursorline
+
+" highlight matching [{()}]
+set showmatch
+
+" set 256 colors
+set t_Co=256
+
+" disable werid background color with custom theme
+set t_ut=
+
+" Set to auto read when a file is changed from the outside
+set autoread
+
+" Set ignorecase when searching
+set ignorecase
+
+" When searching try to be smart about cases
+set smartcase
+
+" Makes search act like in modern browsers
+set incsearch
+
+" Highlight search results
+set hlsearch
+
+" Turn backup off, since most of the stuff is in Git anyway
+set nobackup
+set nowb
+set noswapfile
+
+" Set spaces instead of tabs
+set expandtab
+
+" Be smart when using tabs
+set smarttab
+
+" 1 tab = 4spaces
+set shiftwidth=4
+set tabstop=4
+
+" Linebreak on 500 characters
+set lbr
+set tw=500
+
+" Auto indent
+set ai 
+
+" Smart indent
+set si
+
+" Wrap lines
+set wrap
