@@ -1,0 +1,70 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"); /* only needed once */
+
+/* Move tabs over to right to make room for address bar */
+#TabsToolbar {
+    margin:         0 40px 0 35vw !important;
+    height:         32px !important;
+    border:         none !important;
+}
+
+/* Move address bar to titlebar with tabs */
+#nav-bar {
+    margin:         -32px 65vw 0px 0px !important;
+    height:         32px !important;
+    border:         none !important;
+}
+
+/*Removal of black bottom 1px line*/
+#navigator-toolbox::after {
+    display: none !important;
+}
+
+/* url bar center */
+#urlbar-container {
+    margin-top:    -2px !important;
+    background:     none !important;
+    border:         none !important;
+}
+
+/* Change selected tab top bar color */
+.tab-line{ 
+    background-color: orange !important; 
+}
+
+/* Change the color of selected tab */
+.tab-background[selected="true"] {
+    background-attachment: none!important;
+    background-color: #bfbfbf!important;
+    background-image: none!important;
+}
+
+/* Change not selected tabs background color */
+/*.tab-background {
+    background-color: orange !important;
+}*/
+
+/* Dim unloaded tabs */
+.tabbrowser-tab[pending] { 
+    opacity: 0.4 !important;
+    /*background-color: orange !important;*/
+}
+
+/* Add vibrancy to toolbar, titlebar, and navbar */
+#TabsToolbar, #titlebar, #nav-bar {
+    -moz-appearance: -moz-mac-vibrancy-light !important;
+}
+
+/* Affix hamburger menu to top right */
+#PanelUI-button{
+    position:   fixed;
+    top:        2px;
+    right:      4px;
+    border-inline-start: none;
+}
+
+/*#back-button {
+   display: none !important;
+}*/
+#forward-button {
+   display: none !important;
+}
