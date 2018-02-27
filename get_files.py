@@ -34,3 +34,12 @@ shutil.copy(source, dest)
 source = homepath + '.mozilla/firefox/ttoulgrc.default/chrome/userChrome.css'
 dest = str(os.getcwd()) + '/firefox/'
 shutil.copy(source, dest)
+
+# Typora
+source = homepath + '.config/Typora/conf/conf.user.json'
+dest = str(os.getcwd()) + '/typora/conf/'
+shutil.copy(source, dest)
+source = homepath + '.config/Typora/themes/github-numbered.css'
+dest = str(os.getcwd()) + '/typora/themes/'
+shutil.copy(source, dest)
+
