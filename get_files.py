@@ -27,6 +27,8 @@ shutil.copy(source, dest)
 source = homepath + '.config/sublime-text-3/Packages/User/Preferences.sublime-settings'
 dest = str(os.getcwd()) + '/sublime/'
 shutil.copy(source, dest)
+source = homepath + '.config/sublime-text-3/Packages/User/GitGutter.sublime-settings'
+shutil.copy(source, dest)
 
 # Firefox theme
 source = homepath + '.mozilla/firefox/ttoulgrc.default/chrome/userChrome.css'
