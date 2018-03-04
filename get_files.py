@@ -5,52 +5,39 @@ import shutil
 def get_username():
     return pwd.getpwuid( os.getuid() )[ 0 ]
 
-def copy_file(source, dest):
-  if not os.path.exists(dest):
-    os.makedirs(dest)
-  shutil.copy(source, dest)
-
 user = get_username()
 homepath = '/home/' + user + '/'
 cwd = str(os.getcwd())
 
+# args: copy file 'source' to directory 'dest'
+def copy_file(source, dest):
+  source = homepath + source
+  dest = cwd + dest
+  if not os.path.exists(dest):
+    os.makedirs(dest)
+  shutil.copy(source, dest)
+
 # Bashrc
-source = homepath + '.bashrc'
-dest = cwd + '/bashrc/'
-copy_file(source, dest)
+copy_file('.bashrc', '/bashrc/')
 
 # tmux
-source = homepath + '.tmux.conf'
-dest = cwd + '/tmux/'
-copy_file(source, dest)
+copy_file('.tmux.conf', '/tmux/')
 
 # vim
-source = homepath + '.vimrc'
-dest = cwd + '/vim/'
-copy_file(source, dest)
+copy_file('.vimrc', '/vim/')
 
 # sublime 3 (and plugins) settings
-source = homepath + '.config/sublime-text-3/Packages/User/Preferences.sublime-settings'
-dest = cwd + '/sublime/'
-copy_file(source, dest)
+copy_file('.config/sublime-text-3/Packages/User/Preferences.sublime-settings', '/sublime/')
 # key bindings
-source = homepath + '.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap'
-copy_file(source, dest)
+copy_file('.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap', '/sublime/')
 # GitGutter plugin
-source = homepath + '.config/sublime-text-3/Packages/User/GitGutter.sublime-settings'
-copy_file(source, dest)
+copy_file('.config/sublime-text-3/Packages/User/GitGutter.sublime-settings', '/sublime/')
 
 # Firefox theme
-source = homepath + '.mozilla/firefox/ttoulgrc.default/chrome/userChrome.css'
-dest = cwd + '/firefox/'
-copy_file(source, dest)
+copy_file('.mozilla/firefox/ttoulgrc.default/chrome/userChrome.css', '/firefox/')
 
 # Typora
-source = homepath + '.config/Typora/conf/conf.user.json'
-dest = cwd + '/typora/conf/'
-copy_file(source, dest)
+copy_file('.config/Typora/conf/conf.user.json', '/typora/conf/')
 # My github theme (numbered)
-source = homepath + '.config/Typora/themes/github-numbered.css'
-dest = cwd + '/typora/themes/'
-copy_file(source, dest)
+copy_file('.config/Typora/themes/github-numbered.css', '/typora/themes/')
 
