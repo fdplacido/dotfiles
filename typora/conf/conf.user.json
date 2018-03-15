@@ -18,7 +18,7 @@
   // Custom key binding, which will override the default ones.
   "keyBinding": {
     // for example: 
-    // "Always On Top": "Ctrl+Shift+P"
+    // "Always on Top": "Ctrl+Shift+P"
   },
 
   "autoSaveTimer" : 5, // default 5 minutes

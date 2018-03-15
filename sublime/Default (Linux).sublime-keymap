@@ -1,4 +1,4 @@
 [
-    // Open folder shortcut
-    { "keys": ["ctrl+k", "ctrl+o"], "command": "prompt_open_folder" }
+  // Open folder shortcut
+  { "keys": ["ctrl+k", "ctrl+o"], "command": "prompt_open_folder"}
 ]

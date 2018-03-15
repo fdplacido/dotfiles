@@ -5,7 +5,7 @@ iatest=$(expr index "$-" i)
 # Load python virtualenv default installation
 #######################################################
 
-source ~/Apps/venv/bin/activate
+source ~/Apps/myvenv/bin/activate
 pip -V
 
 #######################################################
@@ -31,20 +31,8 @@ fi
 # # Disable the bell
 # if [[ $iatest > 0 ]]; then bind "set bell-style visible"; fi
 
-# Expand the history size
-export HISTFILESIZE=100000
-export HISTSIZE=5000
-
-# Don't put duplicate lines in the history and do not add lines that start with a space
-export HISTCONTROL=erasedups:ignoredups
-
 # Check the window size after each command and, if necessary, update the values of LINES and COLUMNS
 shopt -s checkwinsize
-
-# Causes bash to append to history instead of overwriting it so if you start a new terminal, you have old session history
-shopt -s histappend
-# This messes with the history numbers, but its the price to pay for having proper history numbers
-export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 
 # Allow ctrl-S for history navigation (with ctrl-R)
 # stty -ixon
@@ -66,6 +54,7 @@ export LS_COLORS='no=00:fi=00:di=00;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40
 #######################################################
 
 alias jp=jupyter-notebook
+alias subl=subl3
 
 #######################################################
 # GENERAL ALIAS'S
@@ -246,3 +235,15 @@ function __setprompt
 PROMPT_COMMAND='__setprompt'
 
 # PS1='\u \w $ '
+
+# Expand the history size
+export HISTFILE=~/.bash_history
+export HISTFILESIZE=500000
+export HISTSIZE=500000
+# Don't put duplicate lines in the history and do not add lines that start with a space
+export HISTCONTROL=ignoredups:erasedups
+# Causes bash to append to history instead of overwriting it so if you start a new terminal, you have old session history
+shopt -s histappend
+# run this after every command (save and reload history) -n: append new line, -w: write history, -c: clear the history list, -r: reload the current history file
+# unset PROMPT_COMMAND
+export PROMPT_COMMAND="history -n;history -w;history -c;history -r;$PROMPT_COMMAND"

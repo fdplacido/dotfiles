@@ -1,4 +1,5 @@
 // GitGutter Settings - User
 {
-      "show_in_minimap": 2
+  "show_in_minimap": 2,
+  "theme": "Monokai Pro.gitgutter-theme"
 }
