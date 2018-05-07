@@ -55,6 +55,7 @@ export LS_COLORS='no=00:fi=00:di=00;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40
 
 alias jp=jupyter-notebook
 alias subl=subl3
+alias gcam='git commit -a -m '
 
 #######################################################
 # GENERAL ALIAS'S
@@ -75,7 +76,7 @@ alias ping='ping -c 10'
 alias less='less -R'
 
 # Remove a directory and all files
-alias rmd='/bin/rm  --recursive --force --verbose '
+# alias rmd='/bin/rm  --recursive --force --verbose '
 
 # Alias's for multiple directory listing commands
 alias la='ls -Alh' # show hidden files

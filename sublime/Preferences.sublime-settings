@@ -17,8 +17,8 @@
 		"Markdown",
 		"Vintage"
 	],
+	"monokai_pro_highlight_open_folders": true,
 	"tab_size": 2,
 	"theme": "Monokai Pro (Filter Spectrum).sublime-theme",
-	"translate_tabs_to_spaces": true,
-	"monokai_pro_highlight_open_folders": true
+	"translate_tabs_to_spaces": true
 }
