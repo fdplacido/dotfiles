@@ -63,6 +63,9 @@ alias gcam='git commit -a -m '
 # To temporarily bypass an alias, we preceed the command with a \
 # EG: the ls command is aliased, but to use the normal ls command you would type \ls
 
+# This is GOLD for finding out what is taking so much space on your drives!
+alias diskspace="du -S | sort -n -r |more"
+
 # alias to show the date
 alias da='date "+%Y-%m-%d %A %T %Z"'
 
@@ -180,19 +183,25 @@ ftext ()
 }
 
 # Goes up a specified number of directories  (i.e. up 4)
-up ()
-{
-	local d=""
-	limit=$1
-	for ((i=1 ; i <= limit ; i++))
-		do
-			d=$d/..
-		done
-	d=$(echo $d | sed 's/^\///')
-	if [ -z "$d" ]; then
-		d=..
-	fi
-	cd $d
+# up ()
+# {
+# 	local d=""
+# 	limit=$1
+# 	for ((i=1 ; i <= limit ; i++))
+# 		do
+# 			d=$d/..
+# 		done
+# 	d=$(echo $d | sed 's/^\///')
+# 	if [ -z "$d" ]; then
+# 		d=..
+# 	fi
+# 	cd $d
+# }
+
+# Simplified version of up. Prints current directory
+up() 
+{ 
+	cd $(eval printf '../'%.0s {1..$1}) && pwd; 
 }
 
 #######################################################
