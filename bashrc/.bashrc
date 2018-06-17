@@ -5,7 +5,7 @@ iatest=$(expr index "$-" i)
 # Load python virtualenv default installation
 #######################################################
 
-source ~/Apps/myvenv/bin/activate
+source ~/Apps/venv/bin/activate
 pip -V
 
 #######################################################

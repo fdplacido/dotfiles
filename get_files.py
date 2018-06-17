@@ -34,7 +34,7 @@ copy_file('.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap',
 copy_file('.config/sublime-text-3/Packages/User/GitGutter.sublime-settings', '/sublime/')
 
 # Firefox theme
-copy_file('.mozilla/firefox/2rgud95x.default/chrome/userChrome.css', '/firefox/')
+copy_file('.mozilla/firefox/1bnxz7zz.default/chrome/userChrome.css', '/firefox/')
 
 # Typora
 copy_file('.config/Typora/conf/conf.user.json', '/typora/conf/')
