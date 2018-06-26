@@ -231,15 +231,16 @@ function __setprompt
 	local LIGHTCYAN="\033[1;36m"
 	local NOCOLOR="\033[0m"
 
-	local CUSTOMGREEN="\033[01;38;5;35m"
-	local CUSTOMYELLOW="\033[01;38;5;227m"
+	local CUSTOMGREEN="\033[00;38;5;29m"
+  local CUSTOMGREENBOLD="\033[01;38;5;29m"
+	local CUSTOMYELLOW="\033[00;38;5;220m"
 
 	# User
-	PS1+="\[${CUSTOMGREEN}\]➜ \u:\h"
+	PS1+="\[${CUSTOMGREEN}\] α⁺ \u:\h"
 	# Current directory
 	PS1+="\[${DARKGRAY}\]:\[${CUSTOMYELLOW}\]\w"
 	# Separation
-	PS1+="\[${CUSTOMGREEN}\]->\[${NOCOLOR}\] " # Normal user
+	PS1+="\[${CUSTOMGREEN}\] ➜\[${NOCOLOR}\] " # Normal user
 
 }
 PROMPT_COMMAND='__setprompt'

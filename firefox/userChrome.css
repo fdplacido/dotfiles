@@ -21,7 +21,7 @@
 
 #navigator-toolbox {
   --tabbar-height: calc(var(--tab-min-height) + var(--space-above-tabbar));
-  --trigger-area-height: 5px;
+  --trigger-area-height: 2px;
 }
 
 :root[chromehidden~="toolbar"] #navigator-toolbox {
