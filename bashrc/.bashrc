@@ -55,7 +55,9 @@ export LS_COLORS='no=00:fi=00:di=00;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40
 
 alias jp=jupyter-notebook
 alias subl=subl3
-alias gcam='git commit -a -m '
+# alias gcam='git commit -a -m '
+
+# Check https://github.com/chubin/cheat.sh
 
 #######################################################
 # GENERAL ALIAS'S

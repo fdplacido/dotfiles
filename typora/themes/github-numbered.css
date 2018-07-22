@@ -44,7 +44,7 @@ body {
 }
 
 #write{
-    max-width: 960px;
+    max-width: 900px;
   	margin: 0 auto;
   	padding: 20px 30px 40px 30px;
 	padding-top: 20px;
@@ -262,11 +262,11 @@ code,
 tt {
     border: 1px solid #ccc;
     background-color: #f8f8f8;
-    border-radius: 3px;
+    border-radius: 2px;
     padding: 0;
     font-family: Hack, Consolas, "Liberation Mono", Courier, monospace;
-    padding: 2px 4px 0px 4px;
-    font-size: 0.8em;
+    padding: 2px 4px 2px 4px;
+    font-size: 0.9em;
 }
 
 .md-fences {
