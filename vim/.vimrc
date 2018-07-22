@@ -9,7 +9,7 @@ colorscheme monokai_pro
 set tabstop=4		
 
 " number of spaces in tab when editing
-set softtabstop=4		
+set softtabstop=4
 
 " show line numbers
 set number              
@@ -74,3 +74,14 @@ set si
 
 " Wrap lines
 set wrap
+
+" Set max width for :Vexplore file explorer
+let g:netrw_winsize = 20
+
+" Hit enter in the file browser to open the selected
+" file with :vsplit to the right of the browser.
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+
+" Change directory to the current buffer when opening files.
+set autochdir
