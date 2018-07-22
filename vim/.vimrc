@@ -3,6 +3,7 @@ syntax enable
 
 " Sublime Text 2 theme
 colorscheme monokai		
+colorscheme monokai_pro
 
 " number of visual spaces per TAB
 set tabstop=4		
