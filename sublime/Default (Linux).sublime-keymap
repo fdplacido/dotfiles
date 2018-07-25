@@ -1,4 +1,6 @@
 [
   // Open folder shortcut
-  { "keys": ["ctrl+k", "ctrl+o"], "command": "prompt_open_folder"}
+  { "keys": ["ctrl+k", "ctrl+o"], "command": "prompt_open_folder"},
+  { "keys": ["alt+up"], "command": "move", "args": {"by": "stops", "empty_line": true, "forward": false} },
+  { "keys": ["alt+down"], "command": "move", "args": {"by": "stops", "empty_line": true, "forward": true} }
 ]
