@@ -40,7 +40,7 @@
 }
 
 #nav-bar, #PersonalToolbar {
-  /* Otherwise spacers will not count as hover-able areas */
+    /* Otherwise spacers will not count as hover-able areas */
     -moz-window-dragging: default;
 }
 

@@ -231,19 +231,31 @@ function __setprompt
 	local LIGHTMAGENTA="\033[1;35m"
 	local CYAN="\033[0;36m"
 	local LIGHTCYAN="\033[1;36m"
-	local NOCOLOR="\033[0m"
+	local NOCOLOR="\e[0m"
 
-	local CUSTOMGREEN="\033[00;38;5;29m"
-  local CUSTOMGREENBOLD="\033[01;38;5;29m"
-	local CUSTOMYELLOW="\033[00;38;5;220m"
+
+	# \e and \033 are equivalent
+	# See https://misc.flogisoft.com/bash/tip_colors_and_formatting
+
+	# \033[01;38;5;220m
+	# \033 to scape the command
+	# [00 or [01 for normal or bold
+	# ;38;5 is to use the 256 colors
+	# ;220m for the actual color
+	local CUSTOMGREEN="\e[00;38;5;29m"
+  local CUSTOMGREENBOLD="\e[01;38;5;29m"
+	local CUSTOMYELLOW="\e[00;38;5;220m"
+
+	git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+	}
 
 	# User
-	PS1+="\[${CUSTOMGREEN}\] α⁺ \u:\h"
+	PS1+="\[${CUSTOMGREEN}\] α⁺ \u@\h"
 	# Current directory
 	PS1+="\[${DARKGRAY}\]:\[${CUSTOMYELLOW}\]\w"
 	# Separation
-	PS1+="\[${CUSTOMGREEN}\] ➜\[${NOCOLOR}\] " # Normal user
-
+	PS1+="\[${CUSTOMGREEN}\] \$(git_branch)➜\[${NOCOLOR}\] " # Normal user
 }
 PROMPT_COMMAND='__setprompt'
 
