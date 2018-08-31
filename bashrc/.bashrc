@@ -24,6 +24,10 @@ elif [ -f /etc/bash_completion ]; then
 	. /etc/bash_completion
 fi
 
+# Source fzf variables
+source /usr/share/fzf/completion.bash
+source /usr/share/fzf/key-bindings.bash
+
 #######################################################
 # EXPORTS
 #######################################################
@@ -55,15 +59,25 @@ export LS_COLORS='no=00:fi=00:di=00;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40
 
 alias jp=jupyter-notebook
 alias subl=subl3
+alias gtt="gnome-terminal --title"
 # alias gcam='git commit -a -m '
 
 # Check https://github.com/chubin/cheat.sh
+
+#######################################################
+# COMMANDS ALIAS'S
+#######################################################
+
+alias ncdu="-rr --exclude .git"
 
 #######################################################
 # GENERAL ALIAS'S
 #######################################################
 # To temporarily bypass an alias, we preceed the command with a \
 # EG: the ls command is aliased, but to use the normal ls command you would type \ls
+
+# fzf search with preview
+alias preview="fzf --preview 'bat --color \"always\" {}'"
 
 # This is GOLD for finding out what is taking so much space on your drives!
 alias diskspace="du -S | sort -n -r |more"
