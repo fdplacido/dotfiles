@@ -35,6 +35,8 @@ copy_file('.config/sublime-text-3/Packages/User/GitGutter.sublime-settings', '/s
 
 # Firefox theme
 copy_file('.mozilla/firefox/2rgud95x.default/chrome/userChrome.css', '/firefox/')
+# Firefox config
+copy_file('.mozilla/firefox/2rgud95x.default/user.js', '/firefox/')
 
 # Typora
 copy_file('.config/Typora/conf/conf.user.json', '/typora/conf/')
