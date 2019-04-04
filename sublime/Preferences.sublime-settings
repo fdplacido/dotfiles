@@ -10,11 +10,11 @@
 	"always_show_minimap_viewport": true,
 	"auto_find_in_selection": true,
 	"bold_folder_labels": true,
-	"color_scheme": "Packages/Theme - Monokai Pro/Monokai Pro (Filter Spectrum).tmTheme",
+	"color_scheme": "Monokai Pro (Filter Spectrum).sublime-color-scheme",
 	"dictionary": "Packages/Language - English/en_GB.dic",
 	"draw_minimap_border": true,
 	"font_face": "Hack",
-	"font_size": 10,
+	"font_size": 13,
 	"highlight_line": true,
 	"ignored_packages":
 	[

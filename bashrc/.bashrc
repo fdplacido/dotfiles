@@ -5,8 +5,26 @@ iatest=$(expr index "$-" i)
 # Load python virtualenv default installation
 #######################################################
 
-source ~/Apps/venv/bin/activate
+source ~/apps/venv/bin/activate
 pip -V
+
+#######################################################
+# Load tmux on first terminal
+#######################################################
+# 1. check existance of tmux command
+# 2. check for interactive shell (PS1)
+# 3. Avoid tmux (and screen) running within itself
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  # with exec command, on exiting tmux the terminal is closed
+  # also with exec, on opening second window no duplicate session is catched	
+  # on this config, new window can be run from the terminal `st -t "name"`
+  # exec tmux new -s PL
+
+  # alternatively just run tmux (but duplicate session detected)
+  tmux new -s PL
+
+  # tmux a -t PL || exec tmux new -s PL && exit;
+fi
 
 #######################################################
 # SOURCED ALIAS'S AND SCRIPTS
@@ -31,6 +49,26 @@ source /usr/share/fzf/key-bindings.bash
 #######################################################
 # EXPORTS
 #######################################################
+
+# if command -v subl > /dev/null; then
+#     export EDITOR="subl -w";
+# else
+#     export EDITOR="nano -lm";
+# fi
+
+export EDITOR=/usr/bin/vim
+export BROWSER=/usr/bin/firefox
+
+# for nnn file manager to do cd on exit
+export NNN_TMPFILE="/tmp/nnn"
+n()
+{
+nnn "$@"
+  if [ -f $NNN_TMPFILE ]; then
+    . $NNN_TMPFILE
+      rm -f $NNN_TMPFILE > /dev/null
+        fi
+}
 
 # # Disable the bell
 # if [[ $iatest > 0 ]]; then bind "set bell-style visible"; fi
@@ -57,10 +95,11 @@ export LS_COLORS='no=00:fi=00:di=00;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40
 # APPLICATION ALIAS'S
 #######################################################
 
-alias jp=jupyter-notebook
-alias subl=subl3
+# alias jp=jupyter-notebook
+# alias subl=subl3
 alias gtt="gnome-terminal --title"
-# alias gcam='git commit -a -m '
+alias alt="alacritty -t"
+# alias stt="st -t"
 
 # Check https://github.com/chubin/cheat.sh
 
@@ -80,7 +119,8 @@ alias ncdu="-rr --exclude .git"
 alias preview="fzf --preview 'bat --color \"always\" {}'"
 
 # This is GOLD for finding out what is taking so much space on your drives!
-alias diskspace="du -S | sort -n -r |more"
+# use ncdu 
+# alias diskspace="du -S | sort -n -r |more"
 
 # alias to show the date
 alias da='date "+%Y-%m-%d %A %T %Z"'
@@ -221,7 +261,7 @@ up()
 }
 
 #######################################################
-# Set the colors
+# Set PS1 colors
 #######################################################
 
 function __setprompt
@@ -257,19 +297,22 @@ function __setprompt
 	# ;38;5 is to use the 256 colors
 	# ;220m for the actual color
 	local CUSTOMGREEN="\e[00;38;5;29m"
-  local CUSTOMGREENBOLD="\e[01;38;5;29m"
+    local CUSTOMGREEN2="\e[00;38;5;10m"
+    local CUSTOMGREENBOLD="\e[01;38;5;29m"
 	local CUSTOMYELLOW="\e[00;38;5;220m"
+    local CUSTOMYELLOW2="\e[00;38;5;4m"
 
 	git_branch() {
-     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+    	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 	}
 
 	# User
-	PS1+="\[${CUSTOMGREEN}\] α⁺ \u@\h"
+	# PS1+="\[${CUSTOMGREEN}\] α⁺ \u@\h"
+	PS1+="\[${CUSTOMGREEN2}\]\u@\h"
 	# Current directory
-	PS1+="\[${DARKGRAY}\]:\[${CUSTOMYELLOW}\]\w"
+	PS1+="\[${DARKGRAY}\]:\[${CUSTOMYELLOW2}\]\w"
 	# Separation
-	PS1+="\[${CUSTOMGREEN}\] \$(git_branch)➜\[${NOCOLOR}\] " # Normal user
+	PS1+="\[${CUSTOMGREEN2}\] \$(git_branch)➜\[${NOCOLOR}\] " # Normal user
 }
 PROMPT_COMMAND='__setprompt'
 

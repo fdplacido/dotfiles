@@ -13,6 +13,9 @@
 user_pref("_user.js.parrot", "START: My Firefox prefs!!");
 
 
+// Disable tab previews
+user_pref("browser.ctrlTab.recentlyUsedOrder", false);
+
 // Disable geolocalization
 user_pref("geo.enabled", false);
 user_pref("geo.wifi.uri", "");
