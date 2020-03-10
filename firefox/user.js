@@ -27,6 +27,9 @@ user_pref("permissions.default.geo", 2);
 user_pref("media.peerconnection.enabled", false);
 user_pref("network.websocket.enabled", false);
 
+// Disable websites checking status of microphone and webcam
+user_pref("media.navigator.enabled", false)
+
 // // Disable Google Safe Browsing and malware and phishing protection.
 // // Stop sending links and downloading lists from google.
 // // Security risk, but privacy improvement.
@@ -101,6 +104,16 @@ user_pref("plugins.enumerable_names", "");
 // // Disable referrer headers between https websites.
 // user_pref("network.http.sendSecureXSiteReferrer", false);
 
+// resist fingerprint
+user_pref("privacy.resistFingerprinting", true);
+user_pref("privacy.trackingprotection.fingerprinting.enabled", true);
+user_pref("privacy.trackingprotection.cryptomining.enabled", true);
+
+// Isolate cookies to the first party domain
+// Prevents tracking across multiple domains
+// also affects: cookies, cache, HTTP authentication, DOM Storage, SSL... 
+user_pref("privacy.firstparty.isolate", true);
+
 // no telemetry cached
 user_pref("toolkit.telemetry.cachedClientID", "");
 
@@ -114,10 +127,11 @@ user_pref("dom.battery.enabled", false);
 
 // // Disable cookies.
 // // 0 = All cookies are allowed. (Default) 
-// // 1 = Only cookies from the originating server are allowed. (block third party cookies)
-// // 2 = No cookies are allowed. 
-// // 3 = Third-party cookies are allowed only if that site has stored cookies already from a previous visit 
-// user_pref("network.cookie.cookieBehavior", 0);
+// // 1 = Only accept from the originating site (block third-party cookies)
+// // 2 = Block all cookies by default
+// // 3 = Block cookies from unvisited sites
+// // 4 = New Cookie Jar policy (prevent storage access to trackers)
+user_pref("network.cookie.cookieBehavior", 0);
 
 // // cookies are deleted at the end of the session
 // // 0 = The cookie's lifetime is supplied by the server. (Default) 

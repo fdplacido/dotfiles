@@ -59,16 +59,45 @@ source /usr/share/fzf/key-bindings.bash
 export EDITOR=/usr/bin/vim
 export BROWSER=/usr/bin/firefox
 
+export NNN_TRASH=1
+
 # for nnn file manager to do cd on exit
 export NNN_TMPFILE="/tmp/nnn"
 n()
 {
-nnn "$@"
-  if [ -f $NNN_TMPFILE ]; then
-    . $NNN_TMPFILE
-      rm -f $NNN_TMPFILE > /dev/null
-        fi
+    export NNN_TMPFILE=${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd
+
+    nnn "$@" -d
+
+    if [ -f $NNN_TMPFILE ]; then
+            . $NNN_TMPFILE
+            rm -f $NNN_TMPFILE > /dev/null
+    fi
 }
+
+# #############################
+# # Ranger file manager stuff
+# #############################
+# export RANGER_LOAD_DEFAULT_RC=FALSE
+# # https://github.com/ranger/ranger/blob/master/examples/bash_automatic_cd.sh
+# function ranger-cd {
+#     tempfile="$(mktemp -t tmp.XXXXXX)"
+#     ~/apps/venv/bin/ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+#     test -f "$tempfile" &&
+#         if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+#             cd -- "$(cat "$tempfile")"
+#         fi
+#     rm -f -- "$tempfile"
+# }
+# # https://wiki.archlinux.org/index.php/Ranger#Shell_tips
+# rg() {
+#     if [ -z "$RANGER_LEVEL" ]
+#     then
+#         ranger-cd
+#     else
+#         exit
+#     fi
+# }
 
 # # Disable the bell
 # if [[ $iatest > 0 ]]; then bind "set bell-style visible"; fi
@@ -97,8 +126,8 @@ export LS_COLORS='no=00:fi=00:di=00;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40
 
 # alias jp=jupyter-notebook
 # alias subl=subl3
-alias gtt="gnome-terminal --title"
-alias alt="alacritty -t"
+# alias gtt="gnome-terminal --title"
+# alias alt="alacritty -t"
 # alias stt="st -t"
 
 # Check https://github.com/chubin/cheat.sh
@@ -107,7 +136,7 @@ alias alt="alacritty -t"
 # COMMANDS ALIAS'S
 #######################################################
 
-alias ncdu="-rr --exclude .git"
+# alias ncdu="-rr --exclude .git"
 
 #######################################################
 # GENERAL ALIAS'S
@@ -138,8 +167,8 @@ alias less='less -R'
 # alias rmd='/bin/rm  --recursive --force --verbose '
 
 # Alias's for multiple directory listing commands
-alias la='ls -Alh' # show hidden files
-alias ls='ls -Fh --color=always' # add colors and file type extensions
+alias la='ls -AghF --color=always --group-directories-first' # show hidden files
+# alias ls='ls -Fh --color=always' # add colors and file type extensions
 # alias lx='ls -lXBh' # sort by extension
 # alias lk='ls -lSrh' # sort by size
 # alias lc='ls -lcrh' # sort by change time
@@ -152,6 +181,9 @@ alias ls='ls -Fh --color=always' # add colors and file type extensions
 # alias labc='ls -lap' #alphabetical sort
 # alias lf="ls -l | egrep -v '^d'" # files only
 # alias ldir="ls -l | egrep '^d'" # directories only
+
+# Alias for exa
+alias exa='exa -hla --git'
 
 # # alias chmod commands
 # alias mx='chmod a+x'
@@ -201,6 +233,13 @@ alias countfiles="for t in files links directories; do echo \`find . -type \${t:
 # SPECIAL FUNCTIONS
 #######################################################
 
+# Force unzip to extract to a folder
+unzip_d () {
+    zipfile="$1"
+    zipdir=${1%.zip}
+    unzip -d "$zipdir" "$zipfile"
+}
+
 # Extracts any archive(s) (if unp isn't installed)
 extract () {
 	for archive in $*; do
@@ -214,7 +253,7 @@ extract () {
 				*.tar)       tar xvf $archive     ;;
 				*.tbz2)      tar xvjf $archive    ;;
 				*.tgz)       tar xvzf $archive    ;;
-				*.zip)       unzip $archive       ;;
+				*.zip)       unzip_d $archive     ;;
 				*.Z)         uncompress $archive  ;;
 				*.7z)        7z x $archive        ;;
 				*)           echo "don't know how to extract '$archive'..." ;;
@@ -312,7 +351,7 @@ function __setprompt
 	# Current directory
 	PS1+="\[${DARKGRAY}\]:\[${CUSTOMYELLOW2}\]\w"
 	# Separation
-	PS1+="\[${CUSTOMGREEN2}\] \$(git_branch)➜\[${NOCOLOR}\] " # Normal user
+	PS1+="\[${CUSTOMGREEN2}\] \$(git_branch)⟩\[${NOCOLOR}\] " # Normal user
 }
 PROMPT_COMMAND='__setprompt'
 
